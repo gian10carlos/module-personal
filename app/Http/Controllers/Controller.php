@@ -21,7 +21,8 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
 
-    public function login() {
+    public function login()
+    {
         return view('login');
     }
 
@@ -85,5 +86,10 @@ class Controller extends BaseController
     {
 
         return view('reportPago');
+    }
+    public function destroyPerson(Person $id)
+    {
+        $id->delete();
+        return redirect()->route('reportPersonal');
     }
 }

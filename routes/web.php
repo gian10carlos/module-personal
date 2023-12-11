@@ -34,3 +34,6 @@ Route::get('/get-distritos/{provinciaId}', [Controller::class, 'getDistritos']);
 
 //UPDATE PERSON
 Route::put('/update-data-person', [UpdateUserController::class, 'updateDataPerson'])->name('updateDataPerson');
+
+//DELETE REPORT PERSON
+Route::delete('/destroy/{id}', [Controller::class, 'destroyPerson'])->name('destroyPerson');

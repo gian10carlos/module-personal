@@ -25,7 +25,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">File Export</h3>
+                            <h3 class="card-title">Reporte Personal</h3>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -52,8 +52,8 @@
                                                 <td>{{ $dato->CARGO }}</td>
                                                 <td>{{ $dato->HORA_ENTRADA }}</td>
 
-                                                <td>
-                                                    <button type="button" class="btn btn-success"
+                                                <td class="d-flex justify-content-center">
+                                                    <button type="button" class="btn btn-success mx-3"
                                                         data-bs-toggle="modal" data-bs-target="#exampleModal"
                                                         data-bs-idPer="{{ $dato->ID_PERSON }}"
                                                         data-bs-idCon="{{ $dato->ID_CONTRATO }}"
@@ -64,7 +64,12 @@
                                                         data-bs-hora_entr="{{ $dato->HORA_ENTRADA }}"><i
                                                             class="bi bi-pencil"></i></button>
 
-                                                    <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                                                    <form action="{{ route('destroyPerson', $dato->ID_PERSON) }}" method="post">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button  type="submit" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                                                    </form>
+                                                    
                                                 </td>
                                             </tr>
                                         @endforeach

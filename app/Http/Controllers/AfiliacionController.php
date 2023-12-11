@@ -7,10 +7,8 @@ use Illuminate\Http\Request;
 
 class AfiliacionController extends Controller
 {
-    public function afiliacion(Request $request, $contratoId)
+    public function afiliacion($data, $contratoId)
     {
-        $data = $request->input('data');
-
         $afiliacion = new Afiliacion();
 
         $afiliacion->reg_lab = $data['reg_lab'] ?? null;
@@ -19,7 +17,7 @@ class AfiliacionController extends Controller
         $afiliacion->sit_eps = $data['sit_eps'] ?? null;
 
         $afiliacion->id_contrato = $contratoId;
-        
+
         $afiliacion->save();
     }
 }

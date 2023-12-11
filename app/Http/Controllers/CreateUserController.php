@@ -12,10 +12,8 @@ class CreateUserController extends Controller
     {
         $request->validate([]);
 
-        // Obtener datos actuales de la sesión
         $data = session('data', []);
 
-        // Guardar o actualizar datos en la sesión
         session()->put('data', array_merge($data, $request->all()));
 
         return redirect()->route('workData');
@@ -26,8 +24,6 @@ class CreateUserController extends Controller
         $data = session('data', []);
 
         session()->put('data', array_merge($data, $request->all()));
-
-       
 
         return redirect()->route('familyData');
     }
@@ -41,7 +37,6 @@ class CreateUserController extends Controller
         return redirect()->route('payData');
     }
 
-
     public function create(
         Request $request,
         PersonController $personController,
@@ -52,8 +47,6 @@ class CreateUserController extends Controller
         HijosController $hijosController
     ) {
 
-
-
         DB::beginTransaction();
 
         try {
@@ -62,24 +55,32 @@ class CreateUserController extends Controller
 
             $data = session('data', []);
 
+            $discap_value = isset($data['discap']) ? $data['discap'] : null;
+            $lactan_value = isset($data['lactan']) ? $data['lactan'] : null;
+
             $person = $personController->person($data);
 
             $contrato = $contratoController->contrato($data, $person->id);
 
-            // $afiliacionController->afiliacion($data, $contrato->id);
+            $afiliacionController->afiliacion($data, $contrato->id);
 
-            // $discapacidadController->discapacidad($data, $person->id);
+            if ($discap_value == 1) {
+                $discapacidadController->discapacidad($data, $person->id);
+            }
 
-            // $lactanciaController->lactancia($data, $person->id);
+            if ($lactan_value == 1) {
+                $lactanciaController->lactancia($data, $person->id);
+            }
 
-            // $hijosController->hijos($data, $person->id);
+            if ($data['hijos'] == 1) {
+                $hijosController->hijos($data, $person->id);
+            }
 
             DB::commit();
 
             session()->forget('data');
 
             return redirect()->route('reportPersonal');
-
         } catch (\Throwable $e) {
             DB::rollBack();
 
