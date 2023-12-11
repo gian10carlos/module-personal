@@ -9,13 +9,8 @@ use Illuminate\Http\Request;
 
 class ContratoController extends Controller
 {
-
-    public $timestamps = false;
-
     public function contrato($data, $personId)
     {
-        // $data = $request->input('data');
-
         $contrato = new Contrato();
 
         $contrato->tipo_trabaj = $data['tipo_trabaj'] ?? null;
@@ -29,7 +24,7 @@ class ContratoController extends Controller
         $contrato->fech_fin = $data['fech_fin'] ?? null;
         $contrato->hora_entr = $data['hora_entr'] ?? null;
         $contrato->hora_sali = $data['hora_sali'] ?? null;
-        $contrato->salario = $data['salario']??null;
+        $contrato->salario = $data['salario'] ?? null;
 
         $contrato->id_person = $personId;
 
@@ -42,7 +37,7 @@ class ContratoController extends Controller
         // $contrato->expiracion = $data['expiracion']??null;
         // $contrato->cvv = $data['cvv']??null;
 
-        
+
         $contrato->save();
 
         return $contrato;

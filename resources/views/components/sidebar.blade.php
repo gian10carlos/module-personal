@@ -26,6 +26,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            
                                         </div>
                                         <!-- COUNTRY -->
                                         <div class="d-flex country">
@@ -33,6 +34,24 @@
                                                 <span class="dark-layout"><i class="fe fe-moon"></i></span>
                                                 <span class="light-layout"><i class="fe fe-sun"></i></span>
                                             </a>
+                                        </div>
+                                        {{-- SIDE MENU --}}
+                                        <div class="dropdown d-flex profile-1">
+                                            <a href="javascript:void(0)" data-bs-toggle="dropdown" class="nav-link leading-none d-flex">
+                                                <img src="https://yt3.googleusercontent.com/ytc/APkrFKbaWZ0qKTR0DPl6gNguvc2KNr92Z6vCLmAYfWKU=s900-c-k-c0x00ffffff-no-rj" alt="profile-user" class="avatar  profile-user brround cover-image">
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                                <div class="drop-heading">
+                                                    <div class="text-center">
+                                                        <h5 class="text-dark mb-0 fs-14 fw-semibold">Gian Carlos</h5>
+                                                        <small class="text-muted">Administrador</small>
+                                                    </div>
+                                                </div>
+                                                <div class="dropdown-divider m-0"></div>
+                                                <a class="dropdown-item" href="{{ route('login') }}">
+                                                    <i class="dropdown-icon fe fe-alert-circle"></i> Sign out
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

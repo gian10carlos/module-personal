@@ -196,8 +196,8 @@
                                         <label
                                             class="custom-control custom-checkbox mx-3 d-flex col-12 justify-content-end">
                                             <div class="col-6">
-                                                <input type="checkbox" class="custom-control-input" value="" name="lactancia"
-                                                    id="lactancia">
+                                                <input type="checkbox" class="custom-control-input" value="1" name="lactan"
+                                                    id="lactan">
                                                 <p class="custom-control-label mx-5">Recibe Lactancia</p>
                                             </div>
                                         </label>

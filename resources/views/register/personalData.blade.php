@@ -37,28 +37,28 @@
                                         <label class="col-md-3 form-label">DNI</label>
                                         <div class="col-md-9">
                                             <input type="number" class="form-control" placeholder="12345678"
-                                                value="" name="dni" id="dni" required>
+                                                value="" name="dni" id="dni" >
                                         </div>
                                     </div>
                                     <div class=" row mb-4">
                                         <label class="col-md-3 form-label">Apellido Paterno</label>
                                         <div class="col-md-9">
                                             <input type="text" class="form-control" value="" name="apell_pat"
-                                                id="apell_pat" required>
+                                                id="apell_pat" >
                                         </div>
                                     </div>
                                     <div class=" row mb-4">
                                         <label class="col-md-3 form-label">Apellido Materno</label>
                                         <div class="col-md-9">
                                             <input type="text" class="form-control" value="" name="apell_mat"
-                                                id="apell_mat" required>
+                                                id="apell_mat" >
                                         </div>
                                     </div>
                                     <div class=" row mb-4">
                                         <label class="col-md-3 form-label">Nombres</label>
                                         <div class="col-md-9">
                                             <input type="text" class="form-control" value="" name="nombre"
-                                                id="nombre" required>
+                                                id="nombre" >
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-md-6">
@@ -162,7 +162,7 @@
                                         <label class="col-md-3 form-label">Fecha nacimiento</label>
                                         <div class="col-md-9">
                                             <input type="date" class="form-control" value=""
-                                                name="fech_nac" id="fech_nac" required>
+                                                name="fech_nac" id="fech_nac" >
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -225,7 +225,7 @@
                                         <label class="col-md-3 form-label">Telefono</label>
                                         <div class="col-md-9">
                                             <input type="number" class="form-control" value=""
-                                                name="telefono" id="telefono" required>
+                                                name="telefono" id="telefono" >
                                         </div>
                                     </div>
                                     <div class="row mb-4">
@@ -256,9 +256,12 @@
                                     <div class="row">
                                         <hr>
                                         <h3>Discapacidad</h3>
-                                        <div>
-                                            <input type="checkbox" id="interes1" name="intereses[]" value="deporte">
-                                            <label for="interes1">Discapacidad</label>
+                                        <div class="col-md-6 d-flex">
+                                            <label class="custom-control custom-checkbox mx-3">
+                                                <input type="checkbox" class="custom-control-input"
+                                                    name="discap" id="discap" value="1">
+                                                <span class="custom-control-label">Discapacidad</span>
+                                            </label>
                                         </div>
                                         
                                         <div class="form-group">
@@ -352,7 +355,7 @@
                                             <label class="col-md-3 form-label">Direccion</label>
                                             <div class="col-md-9">
                                                 <input type="text" class="form-control" placeholder="Jr #"
-                                                    name="dire_dom" id="dire_dom" required>
+                                                    name="dire_dom" id="dire_dom" >
                                             </div>
                                         </div>
                                     </div>
