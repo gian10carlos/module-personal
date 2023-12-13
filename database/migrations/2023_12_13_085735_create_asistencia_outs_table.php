@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('fechaSalida');
             $table->string('horaSalida');
 
-            $table->unsignedInteger('id_person');
-            $table->foreign('id_person')->references('id')->on('person')->onDelete('cascade');
+            $table->unsignedInteger('id_entrada');
+            $table->foreign('id_entrada')->references('id')->on('asistencia_inps')->onDelete('cascade');
             $table->timestamps();
         });
     }
