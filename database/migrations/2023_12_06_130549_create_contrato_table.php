@@ -32,9 +32,9 @@ return new class extends Migration
             $table->unsignedInteger('id_area');
             $table->unsignedInteger('id_cargo');
 
-            $table->foreign('id_person')->references('id')->on('person')->onDelete('cascade');
-            $table->foreign('id_area')->references('id')->on('area')->onDelete('cascade');
-            $table->foreign('id_cargo')->references('id')->on('cargo')->onDelete('cascade');
+            $table->foreign('id_person')->references('id')->on('person')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_area')->references('id')->on('area')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_cargo')->references('id')->on('cargo')->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();
         });

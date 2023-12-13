@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Area;
+use App\Models\Asistencia;
+use App\Models\AsistenciaInp;
+use App\Models\AsistenciaOut;
 use App\Models\Cargo;
 use App\Models\Contrato;
 use Illuminate\Http\Request;
@@ -72,14 +75,29 @@ class Controller extends BaseController
 
         return view('reportPersonal', ['dataPerson' => $dataReportPerson]);
     }
+
+    public function registroAsistencia()
+    {
+        // Obtener la fecha y hora actual con Carbon
+        $now = now();
+
+        // Obtener solo la fecha actual (sin la hora)
+        $currentDate = $now->toDateString();
+
+        // Obtener solo la hora actual (sin la fecha)
+        $currentTime = $now->toTimeString();
+
+        return view('registroAsistencia', ['date' => $currentDate, 'time' => $currentTime]);
+    }
+
     public function asistencia()
     {
+        $dataReportPerson = DB::select('CALL GetAsistencias()');
 
-        return view('asistencia');
+        return view('reportAsistencia', ['dataReportPerson' => $dataReportPerson]);
     }
     public function pago()
     {
-
         return view('pago');
     }
     public function reportPago()
@@ -91,5 +109,47 @@ class Controller extends BaseController
     {
         $id->delete();
         return redirect()->route('reportPersonal');
+    }
+
+    // ASISTENCIA
+    public function registerAsistencia(Request $request)
+    {
+        try {
+            $now = now();
+
+            $currentDate = $now->toDateString();
+
+            $currentTime = $now->toTimeString();
+
+            $asistenciaInp = new AsistenciaInp();
+            $asistenciaOut = new AsistenciaOut();
+
+            $person = Person::where('dni', $request->dniAsistencia)->first();
+            $personId = $person->id;
+
+            // ENTRADA
+            if ($request->typeAsistencia == 1) {
+                $asistenciaInp->fechaEntrada = $currentDate;
+                $asistenciaInp->horaEntrada = $currentTime;
+                $asistenciaInp->id_person = $personId;
+
+                $asistenciaInp->save();
+
+                return redirect()->route('registroAsistencia')->with('success', 'Asistencia Entrada Registrada');
+            } else {
+                // SALIDA
+                if ($request->typeAsistencia == 2) {
+                    $asistenciaOut->fechaSalida = $currentDate;
+                    $asistenciaOut->horaSalida = $currentTime;
+                    $asistenciaOut->id_person = $personId;
+
+                    $asistenciaOut->save();
+
+                    return redirect()->route('registroAsistencia')->with('success', 'Asistencia Salida Registrada');
+                }
+            }
+        } catch (\Throwable $th) {
+            return redirect()->route('registroAsistencia')->with('message', 'Asistencia NO registrada');
+        }
     }
 }
