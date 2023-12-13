@@ -37,3 +37,4 @@ Route::put('/update-data-person', [UpdateUserController::class, 'updateDataPerso
 
 //DELETE REPORT PERSON
 Route::delete('/destroy/{id}', [Controller::class, 'destroyPerson'])->name('destroyPerson');
+

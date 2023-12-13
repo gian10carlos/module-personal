@@ -32,12 +32,6 @@ class ContratoController extends Controller
 
         $contrato->id_cargo = Cargo::where('id', $data['tipo_trabaj'])->first()->id;
 
-        // $contrato->nom_titu_tarj = $data['nom_titu_tarj']??null;
-        // $contrato->num_tarj = $data['num_tarj']??null;
-        // $contrato->expiracion = $data['expiracion']??null;
-        // $contrato->cvv = $data['cvv']??null;
-
-
         $contrato->save();
 
         return $contrato;

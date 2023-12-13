@@ -23,14 +23,23 @@
             <div class="row">
                 <div class="col-xl-12 col-lg-12">
                     <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Datos Laborales</h4>
+                        <div class="card-header col-12">
+                            <h4 class="card-title col-3">Datos Laborales</h4>
                         </div>
+
                         <div class="card-body">
-                            <form method="POST" action="{{ route('formWork') }}" class="form-horizontal row">
+                            <form method="POST" action="{{ route('formWork') }}" class="form-horizontal row"
+                                enctype="multipart/form-data">
                                 @csrf
                                 {{-- col-left --}}
                                 <div class="col-5">
+                                    <div class="mb-3 col-6">
+                                        <label for="contratoDni" class="form-label">DNI</label>
+                                        <input type="text" class="form-control" name="contratoDni" id="contratoDni"
+                                            aria-describedby="helpId" placeholder="" />
+                                        <small id="helpId" class="form-text text-muted">Ingrese el Dni del personal
+                                            registrado</small>
+                                    </div>
                                     <div class="form-group mb-4">
                                         <label class="form-label">Cargo</label>
                                         <select class="form-control select2 form-select select2-hidden-accessible"
@@ -196,8 +205,8 @@
                                         <label
                                             class="custom-control custom-checkbox mx-3 d-flex col-12 justify-content-end">
                                             <div class="col-6">
-                                                <input type="checkbox" class="custom-control-input" value="1" name="lactan"
-                                                    id="lactan">
+                                                <input type="checkbox" class="custom-control-input" value="1"
+                                                    name="lactan" id="lactan">
                                                 <p class="custom-control-label mx-5">Recibe Lactancia</p>
                                             </div>
                                         </label>
@@ -236,5 +245,16 @@
     </div>
 </div>
 <!--app-content closed-->
+
+@if (Session::has('message'))
+    <script>
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "{{ Session::get('message') }}"
+        });
+    </script>
+@endif
+
 
 @include('template.footer')

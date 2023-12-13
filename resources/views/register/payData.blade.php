@@ -78,16 +78,9 @@
                                                                 <label class="form-label">Expiracion</label>
                                                                 <div class="input-group">
                                                                     <input type="date" class="form-control"
-                                                                        placeholder="MM" name="expiracion" id="expiracion">
+                                                                        placeholder="MM" name="expiracion"
+                                                                        id="expiracion">
                                                                 </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-4">
-                                                            <div class="form-group">
-                                                                <label class="form-label">CVV <i
-                                                                        class="fa fa-question-circle"></i></label>
-                                                                <input type="number" class="form-control"
-                                                                    name="cvv" id="cvv">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -118,5 +111,31 @@
     </div>
 </div>
 <!--app-content closed-->
+
+@if (Session::has('message'))
+    <script>
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "{{ Session::get('message') }}"
+        });
+    </script>
+@endif
+
+@if (Session::has('success'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Operación exitosaqqq',
+            text: "{{ Session::get('success') }}",
+            timer: 3000, // 3 segundos
+            showConfirmButton: false
+        }).then(function () {
+            window.location.href = "{{ route('reportPersonal') }}";
+        });
+    </script>
+@endif
+
+
 
 @include('template.footer')
