@@ -33,6 +33,7 @@
                                     class="table table-bordered text-nowrap key-buttons border-bottom">
                                     <thead>
                                         <tr>
+                                            <th class="border-bottom-0">FOTO</th>
                                             <th class="border-bottom-0">NOMBRE</th>
                                             <th class="border-bottom-0">DNI</th>
                                             <th class="border-bottom-0">TELEFONO</th>
@@ -45,6 +46,10 @@
                                     <tbody>
                                         @foreach ($dataPerson as $dato)
                                             <tr>
+                                                <td class="d-flex justify-content-center">
+                                                    <img src="{{ asset($dato->FOTO_PATH) }}" alt="{{ $dato->NOMBRE }}"
+                                                        width="60px" height="60px">
+                                                </td>
                                                 <td>{{ $dato->NOMBRE }}</td>
                                                 <td>{{ $dato->DNI }}</td>
                                                 <td>{{ $dato->TELEFONO }}</td>
@@ -52,24 +57,27 @@
                                                 <td>{{ $dato->CARGO }}</td>
                                                 <td>{{ $dato->HORA_ENTRADA }}</td>
 
-                                                <td class="d-flex justify-content-center">
-                                                    <button type="button" class="btn btn-success mx-3"
-                                                        data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                                        data-bs-idPer="{{ $dato->ID_PERSON }}"
-                                                        data-bs-idCon="{{ $dato->ID_CONTRATO }}"
-                                                        data-bs-nombre="{{ $dato->NOMBRE }}"
-                                                        data-bs-telefono="{{ $dato->TELEFONO }}"
-                                                        data-bs-id_area="{{ $dato->AREA }}"
-                                                        data-bs-id_cargo="{{ $dato->CARGO }}"
-                                                        data-bs-hora_entr="{{ $dato->HORA_ENTRADA }}"><i
-                                                            class="bi bi-pencil"></i></button>
+                                                <td>
+                                                    <div class="d-flex">
+                                                        <button type="button" class="btn btn-success mx-3"
+                                                            data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                            data-bs-idPer="{{ $dato->ID_PERSON }}"
+                                                            data-bs-idCon="{{ $dato->ID_CONTRATO }}"
+                                                            data-bs-nombre="{{ $dato->NOMBRE }}"
+                                                            data-bs-telefono="{{ $dato->TELEFONO }}"
+                                                            data-bs-id_area="{{ $dato->AREA }}"
+                                                            data-bs-id_cargo="{{ $dato->CARGO }}"
+                                                            data-bs-hora_entr="{{ $dato->HORA_ENTRADA }}"><i
+                                                                class="bi bi-pencil"></i></button>
 
-                                                    <form action="{{ route('destroyPerson', $dato->ID_PERSON) }}" method="post">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button  type="submit" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                                    </form>
-                                                    
+                                                        <form action="{{ route('destroyPerson', $dato->ID_PERSON) }}"
+                                                            method="post">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-danger"><i
+                                                                    class="bi bi-trash"></i></button>
+                                                        </form>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         @endforeach

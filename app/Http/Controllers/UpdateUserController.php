@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Area;
+use App\Models\Cargo;
 use App\Models\Contrato;
 use App\Models\Person;
 use Illuminate\Http\Request;
@@ -17,12 +19,19 @@ class UpdateUserController extends Controller
 
             $contrato = Contrato::find($request->input('recipient-contrato-id'));
 
+            $area = Area::where('descripcion', $request->input('recipient-area'))->first();
+
+            $cargo = Cargo::where('descripcion', $request->input('recipient-cargo'))->first();
+
             $contratoUpdate = [
-                'hora_entr' => $request->input('recipient-hora-entrada')
+                'hora_entr' => $request->input('recipient-hora-entrada'),
+                'id_area' => $area->id,
+                'id_cargo' => $cargo->id
             ];
 
             $personUpdate = [
-                'nombre' => $request->input('recipient-name')
+                'nombre' => $request->input('recipient-name'),
+                'telefono' => $request->input('recipient-telefono')
             ];
 
             $contrato->update($contratoUpdate);

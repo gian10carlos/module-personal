@@ -92,7 +92,7 @@
                                     href="{{ route('workData') }}"><i class="bi bi-clipboard-check fs-5 mx-2"></i><span
                                         class="side-menu__label">Datos Laborales</span></a>
                             </li>
-                            <li class="slide">
+                            {{-- <li class="slide">
                                 <a class="btn side-menu__item has-link disabled" data-bs-toggle="slide"
                                     href="{{ route('familyData') }}"><i class="bi bi-clipboard-check fs-5 mx-2"></i><span
                                         class="side-menu__label">Datos Familiares</span></a>
@@ -101,7 +101,7 @@
                                 <a class="btn side-menu__item has-link disabled" data-bs-toggle="slide"
                                     href="{{ route('payData') }}"><i class="bi bi-clipboard-check fs-5 mx-2"></i><span
                                         class="side-menu__label">Datos Pago</span></a>
-                            </li>
+                            </li> --}}
                             <li class="slide">
                                 <a class="side-menu__item has-link" data-bs-toggle="slide"
                                     href="{{ route('reportPersonal') }}"><i class="bi bi-person fs-5 mx-2"></i><span
@@ -109,8 +109,13 @@
                             </li>
                             <li class="slide">
                                 <a class="side-menu__item has-link" data-bs-toggle="slide"
-                                    href="{{ route('asistencia') }}"><i class="bi bi-card-checklist fs-5 mx-2"></i><span
-                                        class="side-menu__label">Asistencia</span></a>
+                                    href="{{ route('registroAsistencia') }}"><i class="bi bi-card-checklist fs-5 mx-2"></i><span
+                                        class="side-menu__label">Registrar Asistencia</span></a>
+                            </li>
+                            <li class="slide">
+                                <a class="side-menu__item has-link" data-bs-toggle="slide"
+                                    href="{{ route('asistencia') }}"><i class="bi bi-card-list fs-5 mx-2"></i><span
+                                        class="side-menu__label">Reporte Asistencia</span></a>
                             </li>
                             <li class="slide">
                                 <a class="side-menu__item has-link" data-bs-toggle="slide" href="{{ route('pago') }}"><i

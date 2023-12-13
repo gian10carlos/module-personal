@@ -16,6 +16,8 @@ Route::get('/personal/payData', [Controller::class, 'payData'])->name('payData')
 
 Route::get('/personal/reportPersonal', [Controller::class, 'reportPersonal'])->name('reportPersonal');
 
+Route::get('/personal/registroAsistencia', [Controller::class, 'registroAsistencia'])->name('registroAsistencia');
+
 Route::get('/personal/asistencia', [Controller::class, 'asistencia'])->name('asistencia');
 
 Route::get('/personal/pago', [Controller::class, 'pago'])->name('pago');
@@ -38,3 +40,5 @@ Route::put('/update-data-person', [UpdateUserController::class, 'updateDataPerso
 //DELETE REPORT PERSON
 Route::delete('/destroy/{id}', [Controller::class, 'destroyPerson'])->name('destroyPerson');
 
+// POST REGISTER ASISTENCIA
+Route::post('/registrar-asistencia', [Controller::class, 'registerAsistencia'])->name('registerAsistencia');

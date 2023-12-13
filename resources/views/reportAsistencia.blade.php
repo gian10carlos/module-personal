@@ -25,10 +25,10 @@
                 <div class="col-xl-12 col-md-12">
                     <form method="post" action="" class="card">
                         <div class=" card-body">
-                                <div class="form-group">
-                                    <label for="" class="form-label">Cargar Registro</label>
-                                    <input class="form-control form-control-lg" type="file" accept=".pdf, .txt">
-                                </div>
+                            <div class="form-group">
+                                <label for="" class="form-label">Cargar Registro</label>
+                                <input class="form-control form-control-lg" type="file" accept=".pdf, .txt">
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-primary col-1 m-3">Cargar</button>
                     </form>
@@ -49,27 +49,23 @@
                                     class="table table-bordered text-nowrap key-buttons border-bottom">
                                     <thead>
                                         <tr>
-                                            <th class="border-bottom-0">Nombre Apellido</th>
                                             <th class="border-bottom-0">DNI</th>
-                                            <th class="border-bottom-0">Cargo</th>
-                                            <th class="border-bottom-0">Oficina</th>
+                                            <th class="border-bottom-0">Fecha inicio</th>
                                             <th class="border-bottom-0">Hora inicio</th>
+                                            <th class="border-bottom-0">Fecha salida</th>
                                             <th class="border-bottom-0">Hora salida</th>
-                                            <th class="border-bottom-0">Horas laboradas</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @for ($i = 1; $i <= 100; $i++)
+                                        @foreach ($dataReportPerson as $asistencia)
                                             <tr>
-                                                <td>{{ 'Nombre' . rand(8, 10) . ' Apellido' }}</td>
-                                                <td>{{ rand(10000000, 99999999) }}</td>
-                                                <td>{{ 'Cargo ' . $i }}</td>
-                                                <td>{{ 'Oficina ' . $i }}</td>
-                                                <td>{{ rand(8, 10) . ':00 AM' }}</td>
-                                                <td>{{ rand(4, 6) . ':00 PM' }}</td>
-                                                <td>{{ rand(4, 8) . ' horas' }}</td>
+                                                <td>{{ $asistencia->DNI_PERSON }}</td>
+                                                <td>{{ $asistencia->FECHA_ENTRADA }}</td>
+                                                <td>{{ $asistencia->HORA_ENTRADA }}</td>
+                                                <td>{{ $asistencia->FECHA_SALIDA }}</td>
+                                                <td>{{ $asistencia->HORA_SALIDA }}</td>
                                             </tr>
-                                        @endfor
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
