@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\CreateUserController;
+use App\Http\Controllers\PayController;
 use App\Http\Controllers\UpdateUserController;
 
 Route::get('/', [Controller::class, 'login'])->name('login');

@@ -80,7 +80,7 @@
             timer: 3000, // 3 segundos
             showConfirmButton: false
         }).then(function() {
-            window.location.href = "{{ route('registerAsistencia') }}";
+            window.location.href = "{{ route('registroAsistencia') }}";
         });
     </script>
 @endif

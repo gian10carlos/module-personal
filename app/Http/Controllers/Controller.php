@@ -103,7 +103,9 @@ class Controller extends BaseController
     public function reportPago()
     {
 
-        return view('reportPago');
+        $peopleAsistencia = DB::select('CALL GetHoursPerson()');
+
+        return view('reportPago', ['dataPay' => $peopleAsistencia]);
     }
     public function destroyPerson(Person $id)
     {
@@ -139,9 +141,13 @@ class Controller extends BaseController
             } else {
                 // SALIDA
                 if ($request->typeAsistencia == 2) {
+
+                    $date = AsistenciaInp::where('fechaEntrada', $currentDate)->first();
+                    $dateId = $date->id;
+
                     $asistenciaOut->fechaSalida = $currentDate;
                     $asistenciaOut->horaSalida = $currentTime;
-                    $asistenciaOut->id_person = $personId;
+                    $asistenciaOut->id_entrada = $dateId;
 
                     $asistenciaOut->save();
 

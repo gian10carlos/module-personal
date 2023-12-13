@@ -31,34 +31,26 @@
                                     class="table table-bordered text-nowrap key-buttons border-bottom">
                                     <thead>
                                         <tr>
-                                            <th class="border-bottom-0">Nombre Apellido</th>
                                             <th class="border-bottom-0">DNI</th>
-                                            <th class="border-bottom-0">Cargo</th>
-                                            <th class="border-bottom-0">Oficina</th>
-                                            <th class="border-bottom-0">Horas</th>
-                                            <th class="border-bottom-0">Inicio</th>
-                                            <th class="border-bottom-0">Num Cuenta</th>
-                                            <th class="border-bottom-0">Salario</th>
-                                            <th class="border-bottom-0">Acciones</th>
+                                            <th class="border-bottom-0">HORAS</th>
+                                            <th class="border-bottom-0">FECHA</th>
+                                            <th class="border-bottom-0">NUM CC</th>
+                                            <th class="border-bottom-0">SALARIO</th>
+                                            <th class="border-bottom-0">SALARIO FINAL</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @for ($i = 1; $i <= 100; $i++)
+
+                                        @foreach ($dataPay as $dato)
                                             <tr>
-                                                <td>{{ "Nombre" . rand(1, 50) . " Apellido" . rand(1, 50)}}</td>
-                                                <td>{{ rand(10000000, 99999999) }}</td>
-                                                <td>{{ "Cargo " . rand(8, 10) }}</td>
-                                                <td>{{ "Oficina " . rand(8, 10) }}</td>
-                                                <td>{{ rand(80, 200) . " horas" }}</td>
-                                                <td>{{ rand(1, 15) . "/12/2023" }}</td>
-                                                <td>{{ "CC" . rand(1000, 9999) . rand(1000, 9999) . rand(1000, 9999) . rand(1000, 9999) }}</td>
-                                                <td>{{ "$" . (rand(30000, 80000) - rand(0, 5000)) }}</td>
-                                                <td>
-                                                    <button class="btn btn-danger" >Eliminar</button>
-                                                    <button class="btn btn-success" >Editar</button>
-                                                </td>
+                                                <td>{{ $dato->DNI_PERSON }}</td>
+                                                <td>{{ $dato->DIFERENCIA_HORAS }}</td>
+                                                <td>{{ $dato->FECHA_ENTRADA }}</td>
+                                                <td>{{ $dato->NUMERO_TARJETA }}</td>
+                                                <td>{{ $dato->SALARIO }}</td>
+                                                <td>{{ $dato->SALARIO_CALCULADO }}</td>
                                             </tr>
-                                        @endfor
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
