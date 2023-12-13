@@ -88,7 +88,7 @@
                                         class="side-menu__label">Registrar</span></a>
                             </li>
                             <li class="slide">
-                                <a class="btn side-menu__item has-link disabled" data-bs-toggle="slide"
+                                <a class="btn side-menu__item has-link" data-bs-toggle="slide"
                                     href="{{ route('workData') }}"><i class="bi bi-clipboard-check fs-5 mx-2"></i><span
                                         class="side-menu__label">Datos Laborales</span></a>
                             </li>

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->increments('id');
 
             $table->string('dni', 8);
+            $table->string('foto');
             $table->string('apell_pat', 200);
             $table->string('apell_mat', 200);
             $table->string('nombre', 200);

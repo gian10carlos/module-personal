@@ -35,6 +35,9 @@
     {{-- PROTECTED LARAVEL --}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    {{-- SWEET ALERT --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body class="app sidebar-mini ltr light-mode">

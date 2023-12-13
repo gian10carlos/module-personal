@@ -37,28 +37,28 @@
                                         <label class="col-md-3 form-label">DNI</label>
                                         <div class="col-md-9">
                                             <input type="number" class="form-control" placeholder="12345678"
-                                                value="" name="dni" id="dni" >
+                                                value="" name="dni" id="dni">
                                         </div>
                                     </div>
                                     <div class=" row mb-4">
                                         <label class="col-md-3 form-label">Apellido Paterno</label>
                                         <div class="col-md-9">
                                             <input type="text" class="form-control" value="" name="apell_pat"
-                                                id="apell_pat" >
+                                                id="apell_pat">
                                         </div>
                                     </div>
                                     <div class=" row mb-4">
                                         <label class="col-md-3 form-label">Apellido Materno</label>
                                         <div class="col-md-9">
                                             <input type="text" class="form-control" value="" name="apell_mat"
-                                                id="apell_mat" >
+                                                id="apell_mat">
                                         </div>
                                     </div>
                                     <div class=" row mb-4">
                                         <label class="col-md-3 form-label">Nombres</label>
                                         <div class="col-md-9">
                                             <input type="text" class="form-control" value="" name="nombre"
-                                                id="nombre" >
+                                                id="nombre">
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-md-6">
@@ -162,7 +162,7 @@
                                         <label class="col-md-3 form-label">Fecha nacimiento</label>
                                         <div class="col-md-9">
                                             <input type="date" class="form-control" value=""
-                                                name="fech_nac" id="fech_nac" >
+                                                name="fech_nac" id="fech_nac">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -225,7 +225,7 @@
                                         <label class="col-md-3 form-label">Telefono</label>
                                         <div class="col-md-9">
                                             <input type="number" class="form-control" value=""
-                                                name="telefono" id="telefono" >
+                                                name="telefono" id="telefono">
                                         </div>
                                     </div>
                                     <div class="row mb-4">
@@ -258,12 +258,12 @@
                                         <h3>Discapacidad</h3>
                                         <div class="col-md-6 d-flex">
                                             <label class="custom-control custom-checkbox mx-3">
-                                                <input type="checkbox" class="custom-control-input"
-                                                    name="discap" id="discap" value="1">
+                                                <input type="checkbox" class="custom-control-input" name="discap"
+                                                    id="discap" value="1">
                                                 <span class="custom-control-label">Discapacidad</span>
                                             </label>
                                         </div>
-                                        
+
                                         <div class="form-group">
                                             <label class="form-label">Entidad</label>
                                             <select class="form-control select2 form-select select2-hidden-accessible"
@@ -305,8 +305,8 @@
                                                 tabindex="-1" data-placeholder="Grado Discapacidad"
                                                 aria-hidden="true" name="grad_discap" id="grad_discap">
                                                 <option></option>
-                                                <option value="1">PARCIAL</option>
-                                                <option value="2">TOTAL</option>
+                                                <option value="PARCIAL">PARCIAL</option>
+                                                <option value="TOTAL">TOTAL</option>
                                             </select>
                                         </div>
                                     </div>
@@ -355,15 +355,14 @@
                                             <label class="col-md-3 form-label">Direccion</label>
                                             <div class="col-md-9">
                                                 <input type="text" class="form-control" placeholder="Jr #"
-                                                    name="dire_dom" id="dire_dom" >
+                                                    name="dire_dom" id="dire_dom">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <hr>
-                                <div class="col-12 d-flex justify-content-end p-5">
-                                    <button type="submit" class="btn btn-success">Siguiente<i
-                                            class="mx-2 bi bi-chevron-double-right"></i></button>
+                                <div class="col-12 d-flex justify-content-center p-5">
+                                    <button type="submit" class="btn btn-primary">Registrar Datos 📝</button>
                                 </div>
                             </form>
                         </div>
@@ -377,6 +376,30 @@
     </div>
 </div>
 <!--app-content closed-->
+
+@if (Session::has('message'))
+    <script>
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "{{ Session::get('message') }}"
+        });
+    </script>
+@endif
+
+@if (Session::has('success'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Operación exitosa desde personal',
+            text: "{{ Session::get('success') }}",
+            timer: 3000, // 3 segundos
+            showConfirmButton: false
+        }).then(function() {
+            window.location.href = "{{ route('workData') }}";
+        });
+    </script>
+@endif
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="../js/location_nac.js"></script>
